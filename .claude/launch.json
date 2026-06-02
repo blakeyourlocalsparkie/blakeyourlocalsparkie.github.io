@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sparkie-preview",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": ["/Users/emilypickett/Documents/GitHub/blakeyourlocalsparkie.github.io/.claude/serve.py"],
+      "port": 3456
+    }
+  ]
+}

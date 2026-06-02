@@ -1,0 +1,578 @@
+/* ============================================================
+   YOUR LOCAL SPARKIE — SQUARESPACE CUSTOM CSS
+   Replicates the dark mockup design as closely as CSS allows.
+   Paste into: Design → Custom CSS
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Barlow+Condensed:wght@700;800;900&display=swap');
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --brand:      #CD87B9;
+  --brand-dark: #B86EA0;
+  --brand-glow: rgba(205,135,185,0.22);
+  --bg:         #0D0D0D;
+  --bg-alt:     #000000;
+  --card:       #1A1A1A;
+  --card-border: rgba(255,255,255,0.08);
+  --white:      #ffffff;
+  --text:       #9CA3AF;
+  --text-light: #E5E7EB;
+  --radius:     10px;
+  --speed:      0.2s;
+}
+
+/* ============================================================
+   GLOBAL DARK BASE
+   Force dark on body + every section container
+   ============================================================ */
+html,
+body {
+  background: var(--bg) !important;
+  color: var(--white) !important;
+  font-family: 'Barlow', system-ui, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Every Squarespace section wrapper */
+.page-section,
+[data-section],
+.Index-page,
+.Index-page-content,
+.sqs-layout,
+.row.sqs-row,
+.content-wrapper,
+.section-background,
+[class*="page-section"] {
+  background-color: var(--bg) !important;
+}
+
+/* Clear any white/light inline backgrounds Squarespace sets */
+[style*="background-color: rgb(255"],
+[style*="background-color:#fff"],
+[style*="background-color: #fff"] {
+  background-color: var(--bg) !important;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif !important;
+  font-weight: 800 !important;
+  color: var(--white) !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.02em !important;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem) !important; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.4rem) !important; }
+
+p, li, span:not([class*="nav"]):not([class*="header"]) {
+  font-family: 'Barlow', sans-serif !important;
+  color: var(--text) !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+}
+
+strong, b {
+  color: var(--brand) !important;
+  font-weight: 700 !important;
+}
+
+a {
+  color: var(--brand) !important;
+  text-decoration: none !important;
+  transition: opacity var(--speed) ease !important;
+}
+a:hover { opacity: 0.82 !important; }
+
+/* Pink "section label" — small uppercase text above headings */
+.page-section p:first-of-type:not(:only-of-type),
+[class*="label"],
+[class*="Label"] {
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  color: var(--brand) !important;
+}
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+.announcement-bar-wrapper,
+.header-announcement-bar-wrapper,
+[class*="AnnouncementBar"],
+[class*="announcement"] {
+  background-color: var(--brand) !important;
+}
+
+[class*="AnnouncementBar"] *,
+.announcement-bar p,
+.announcement-bar span,
+.announcement-bar a,
+.announcement-bar-text {
+  color: var(--bg-alt) !important;
+  font-family: 'Barlow', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+}
+
+/* ============================================================
+   NAV — matches mockup nav exactly
+   ============================================================ */
+.site-header,
+header.site-header,
+[data-section-type="header"],
+.header-inner,
+nav {
+  background: var(--bg-alt) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5) !important;
+  border-bottom: none !important;
+}
+
+/* Logo */
+.site-title a,
+.header-title-logo a,
+[class*="SiteTitle"] {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 1.15rem !important;
+  letter-spacing: 0.06em !important;
+  color: var(--white) !important;
+}
+
+/* Nav links */
+.header-nav-item a,
+.header-nav-folder-title {
+  font-family: 'Barlow', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  color: #D1D5DB !important;
+  letter-spacing: 0.02em !important;
+  transition: color var(--speed) ease !important;
+  text-decoration: none !important;
+}
+
+.header-nav-item a:hover,
+.header-nav-item--active a {
+  color: var(--brand) !important;
+  opacity: 1 !important;
+}
+
+/* "Get a Quote" / "Contact Us" nav CTA */
+.header-nav-item:last-child a {
+  background: var(--brand) !important;
+  color: var(--bg-alt) !important;
+  padding: 8px 18px !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+}
+
+.header-nav-item:last-child a:hover {
+  opacity: 0.85 !important;
+  color: var(--bg-alt) !important;
+}
+
+/* Mobile nav */
+.header-menu-cta,
+.header-burger-btn { color: var(--white) !important; }
+
+.header-menu { background: var(--bg-alt) !important; }
+
+/* ============================================================
+   HERO — dark gradient + faint lightning bolt
+   ============================================================ */
+.page-section:first-of-type {
+  background: linear-gradient(135deg, var(--bg-alt) 0%, #1a0d24 100%) !important;
+  padding: 100px 5% 80px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.page-section:first-of-type::before {
+  content: '⚡' !important;
+  font-size: 500px !important;
+  position: absolute !important;
+  right: -40px !important;
+  top: -60px !important;
+  opacity: 0.06 !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  filter: drop-shadow(0 0 60px var(--brand)) !important;
+}
+
+.page-section:first-of-type h1,
+.page-section:first-of-type h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem) !important;
+  font-weight: 800 !important;
+  color: var(--white) !important;
+  line-height: 1.15 !important;
+  max-width: 640px !important;
+}
+
+.page-section:first-of-type h1 strong,
+.page-section:first-of-type h2 strong {
+  color: var(--brand) !important;
+}
+
+.page-section:first-of-type p {
+  max-width: 560px !important;
+  color: var(--text) !important;
+  font-size: 1.05rem !important;
+}
+
+/* $0 call-out hero badge */
+.page-section:first-of-type .sqs-block-html p:last-of-type {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-left: 4px solid var(--brand) !important;
+  border-radius: var(--radius) !important;
+  padding: 14px 20px !important;
+  font-size: 0.95rem !important;
+  color: var(--text-light) !important;
+  max-width: 420px !important;
+  display: inline-block !important;
+  margin-top: 8px !important;
+}
+
+/* ============================================================
+   BUTTONS — matches .btn-primary from mockup
+   ============================================================ */
+.sqs-block-button-element,
+.sqs-block-button-element--primary,
+.sqs-block-button-element--secondary,
+a.sqs-block-button-element,
+button[type="submit"],
+input[type="submit"] {
+  background: var(--brand) !important;
+  color: var(--bg-alt) !important;
+  font-family: 'Barlow', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 14px 28px !important;
+  border-radius: var(--radius) !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  transition: opacity var(--speed) ease, transform 0.15s ease !important;
+  box-shadow: 0 4px 20px var(--brand-glow) !important;
+}
+
+.sqs-block-button-element:hover,
+button[type="submit"]:hover {
+  opacity: 0.88 !important;
+  transform: translateY(-1px) !important;
+  color: var(--bg-alt) !important;
+  text-decoration: none !important;
+}
+
+/* ============================================================
+   SERVICES SECTION — white background (2nd section)
+   Card style to match mockup .service-card
+   ============================================================ */
+.page-section:nth-of-type(2) {
+  background: #ffffff !important;
+}
+
+.page-section:nth-of-type(2) h2,
+.page-section:nth-of-type(2) h3 {
+  color: var(--bg-alt) !important;
+}
+
+.page-section:nth-of-type(2) p {
+  color: #6B7280 !important;
+}
+
+/* Service image blocks as cards */
+.page-section:nth-of-type(2) .sqs-block-image,
+.sqs-block-image {
+  background: var(--bg) !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  transition: box-shadow var(--speed) ease, transform var(--speed) ease !important;
+}
+
+.page-section:nth-of-type(2) .sqs-block-image:hover,
+.sqs-block-image:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.09) !important;
+  transform: translateY(-3px) !important;
+}
+
+.sqs-block-image img {
+  display: block !important;
+  width: 100% !important;
+  transition: transform var(--speed) ease !important;
+}
+
+.sqs-block-image:hover img {
+  transform: scale(1.04) !important;
+}
+
+/* Service text blocks inside cards */
+.sqs-block-html .sqs-html-content {
+  padding: 4px 0 !important;
+}
+
+/* Service headings on the services section */
+.sqs-block-html h3 {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 8px !important;
+  color: var(--bg-alt) !important;
+}
+
+/* Dark-section service/text headings */
+.page-section:not(:nth-of-type(2)) .sqs-block-html h3 {
+  color: var(--white) !important;
+}
+
+.sqs-block-html p {
+  font-size: 0.92rem !important;
+  line-height: 1.65 !important;
+  color: #6B7280 !important;
+}
+
+.page-section:not(:nth-of-type(2)) .sqs-block-html p {
+  color: var(--text) !important;
+}
+
+/* ============================================================
+   TESTIMONIALS
+   Matches the mockup card aesthetic — dark card, pink border,
+   large faint quote mark, pink author name
+   ============================================================ */
+
+/* Darken the background image on the testimonials section */
+.page-section:has(blockquote) {
+  position: relative !important;
+  isolation: isolate !important;
+}
+
+.page-section:has(blockquote)::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(0,0,0,0.80) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.page-section:has(blockquote) .content-wrapper,
+.page-section:has(blockquote) .sqs-layout,
+.page-section:has(blockquote) > div {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.page-section:has(blockquote) h2 {
+  color: var(--white) !important;
+}
+
+/* Quote cards — matches mockup .cred-card style */
+blockquote,
+.sqsrte-blockquote,
+.sqs-block-quote blockquote {
+  background: var(--card) !important;
+  border: 1px solid var(--card-border) !important;
+  border-left: 4px solid var(--brand) !important;
+  border-radius: 0 var(--radius) var(--radius) 0 !important;
+  padding: 28px 28px 24px 40px !important;
+  margin: 0 0 20px 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: box-shadow var(--speed) ease, transform var(--speed) ease !important;
+}
+
+blockquote:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4) !important;
+  transform: translateY(-3px) !important;
+}
+
+blockquote::before {
+  content: '\201C' !important;
+  font-family: Georgia, serif !important;
+  font-size: 7rem !important;
+  color: var(--brand) !important;
+  opacity: 0.15 !important;
+  position: absolute !important;
+  top: -14px !important;
+  left: 10px !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+blockquote p {
+  font-family: 'Barlow', sans-serif !important;
+  font-style: italic !important;
+  font-size: 1rem !important;
+  color: var(--text-light) !important;
+  line-height: 1.75 !important;
+  margin: 0 0 12px 0 !important;
+}
+
+blockquote footer,
+blockquote cite,
+.sqs-block-quote .source,
+.sqsrte-blockquote cite {
+  font-family: 'Barlow', sans-serif !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  font-size: 0.78rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--brand) !important;
+  display: block !important;
+  margin-top: 10px !important;
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.sqs-block-html a[href^="tel"] {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-weight: 900 !important;
+  color: var(--brand) !important;
+  letter-spacing: 0.04em !important;
+  display: inline-block !important;
+  transition: transform var(--speed) ease !important;
+}
+
+.sqs-block-html a[href^="tel"]:hover {
+  transform: scale(1.03) !important;
+  opacity: 1 !important;
+}
+
+.sqs-block-html a[href^="mailto"] {
+  color: var(--brand) !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================
+   FORMS — matches mockup form style
+   ============================================================ */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select,
+.field-element input,
+.field-element textarea {
+  background: #1A1A1A !important;
+  border: 1px solid #374151 !important;
+  border-radius: 7px !important;
+  font-family: 'Barlow', sans-serif !important;
+  font-size: 0.95rem !important;
+  padding: 10px 14px !important;
+  color: var(--bg-alt) !important;
+  width: 100% !important;
+  outline: none !important;
+  transition: border-color var(--speed) ease,
+              box-shadow var(--speed) ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 3px rgba(205,135,185,0.18) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6B7280 !important;
+}
+
+label,
+.field-label {
+  font-family: 'Barlow', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  color: var(--bg-alt) !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+}
+
+/* ============================================================
+   FOOTER — matches mockup footer exactly
+   ============================================================ */
+footer.site-footer,
+footer,
+[data-section-type="footer"] {
+  background: var(--bg-alt) !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  padding: 36px 5% !important;
+}
+
+footer p,
+footer span,
+footer li,
+.site-footer p,
+.site-footer span {
+  color: #6B7280 !important;
+  font-size: 0.88rem !important;
+}
+
+footer h1, footer h2, footer h3,
+.site-footer h1, .site-footer h2 {
+  color: var(--white) !important;
+}
+
+footer a,
+.site-footer a {
+  color: #6B7280 !important;
+  transition: color var(--speed) ease !important;
+  opacity: 1 !important;
+}
+
+footer a:hover,
+.site-footer a:hover {
+  color: var(--brand) !important;
+}
+
+/* ============================================================
+   DIVIDERS
+   ============================================================ */
+hr {
+  border: none !important;
+  border-top: 1px solid var(--card-border) !important;
+  margin: 48px 0 !important;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  .page-section:first-of-type {
+    padding: 72px 5% 60px !important;
+  }
+
+  h1 { font-size: 2.2rem !important; }
+  h2 { font-size: 1.8rem !important; }
+  h3 { font-size: 1.2rem !important; }
+
+  .sqs-block-button-element {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  blockquote {
+    padding: 20px 18px 18px 26px !important;
+  }
+
+  .sqs-block-html a[href^="tel"] {
+    font-size: 2rem !important;
+  }
+}
