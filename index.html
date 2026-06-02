@@ -42,17 +42,13 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: .3px;
     }
 
-    .nav-logo .bolt {
-      font-size: 1.5rem;
-      color: var(--yellow);
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      border-radius: 6px;
     }
 
     .nav-links {
@@ -609,13 +605,14 @@
     }
 
     .footer-logo {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
       text-decoration: none;
     }
 
-    .footer-logo span { color: var(--yellow); }
+    .footer-logo img {
+      height: 56px;
+      width: auto;
+      border-radius: 6px;
+    }
 
     .footer-links {
       display: flex;
@@ -654,7 +651,7 @@
   <!-- NAV -->
   <nav>
     <a href="#home" class="nav-logo">
-      <span class="bolt">⚡</span> Your Local Sparkie
+      <img src="logo.png" alt="Your Local Sparkie Electrical Services" />
     </a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
@@ -934,7 +931,9 @@
 
   <!-- FOOTER -->
   <footer>
-    <a href="#home" class="footer-logo">⚡ Your Local <span>Sparkie</span></a>
+    <a href="#home" class="footer-logo">
+      <img src="logo.png" alt="Your Local Sparkie Electrical Services" />
+    </a>
     <ul class="footer-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#services">Services</a></li>
